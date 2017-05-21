@@ -47,10 +47,10 @@ ZADANIE.start
 Możliwości dostosowania działania:
 1. Serwer Websocket:
 
-1.1 linia 11 time.sleep(randint(a,b)) - jak często wysyłane są wiadomości z serwera (w sekundach, jest to przedział od a do b) 
-- domyślnie co 2 lub 3 sekundy
-1.2 linia 12 value=str(randint(a,b)) - jakie wartości temperatury mają być wysyłane przez serwer (przedział) - domyślnie od 5 do 29
+- linia 11 time.sleep(randint(a,b)) - jak często wysyłane są wiadomości z serwera (w sekundach, jest to przedział od a do b) 
+domyślnie co 2 lub 3 sekundy
+- linia 12 value=str(randint(a,b)) - jakie wartości temperatury mają być wysyłane przez serwer (przedział) - domyślnie od 5 do 29
 
 2. Aplikacja /lib/zadanie.ex:
-2.1 linia 49  :timer.sleep(x) - x to czas co który (w milisekundach) jest wywoływane api REST
-2.2 linia 38 socket=Socket.Web.connect!("Y", 8000) - Y to domena z Api typu Websocket
+- linia 49  :timer.sleep(x) - x to czas co który (w milisekundach) jest wywoływane api REST
+- linia 38 socket=Socket.Web.connect!("Y", 8000) - Y to domena z Api typu Websocket
