@@ -25,7 +25,7 @@ pip install git+https://github.com/dpallot/simple-websocket-server.git
 python WebhookApi.py
 ```
 5. Wchodzimy do folderu gdzie znajduję się pobrany projekt samego zadania
-6. Insalujemy dodatkowe biblioteki, jeżeli podczas tego elixir zapyta czy zainstalować cokolwiek nalzęy się zgodzić:
+6. Insalujemy dodatkowe biblioteki, jeżeli podczas tego elixir zapyta czy zainstalować cokolwiek należy się zgodzić:
 ```
 mix deps.get
 ```
@@ -37,11 +37,11 @@ mix compile
 ```
 iex -S mix
 ```
-9.Uruchamiamy skompilowany wcześniej program
+9. Uruchamiamy skompilowany wcześniej program
 ```
 ZADANIE.start
 ```
-10.Aby zatrzymać wykonanie używamy ctrl+C
+10. Aby zatrzymać wykonanie używamy ctrl+C
 
 
 Możliwości dostosowania działania:
