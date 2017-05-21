@@ -19,7 +19,7 @@ defmodule WEBHOOK do
               STORE.put(:storage,:websocket,mes)
             rest=STORE.get(:storage,:rest)
             if(mes<rest and last != mes)do
-              IO.inspect "WEBSOCKET mówi: W WEBSOCKET temeperatura jest niższa niż w REST"
+              IO.inspect "WEBSOCKET mowi: W WEBSOCKET temperatura jest nizsza niz w REST"
               IO.inspect "WEBSOCKET "<> Float.to_string(mes)<>" REST "<> Float.to_string(rest)
               IO.inspect "*******************************************************************************"
             end
@@ -32,31 +32,6 @@ defmodule WEBHOOK do
       end
     end)
     pid
-  end
-
-  def rec(soc,pidAdress)do
-
-    mes=soc|>Socket.Web.recv!
-    mes=mes|>elem(1)
-    mes=Float.parse(mes)
-    mes=mes|>elem(0)
-    last=STORE.get(:storage,:websocket)
-    lastR=STORE.get(:storage,:lastRest)
-    currentR=STORE.get(:storage,:rest)
-    STORE.delete(:storage,:lastWebsocket)
-    STORE.put(:storage,:lastWebsocket,last)
-    if(last != mes or lastR != currentR)do
-      STORE.delete(:storage,:websocket)
-      STORE.put(:storage,:websocket,mes)
-    rest=STORE.get(:storage,:rest)
-    if(mes<rest and (last != mes or lastR != currentR))do
-      IO.inspect "WEBSOCKET mówi: W WEBSOCKET temeperatura jest niższa niż w REST"
-      IO.inspect "WEBSOCKET "<> Float.to_string(mes)<>" REST "<> Float.to_string(rest)
-      IO.inspect "*******************************************************************************"
-    end
-  end
-    send pidAdress,{:websocket,mes}
-    soc|>spawn_recv_loop(pidAdress)
   end
 
   def socketaa (pidAdress) do
@@ -100,7 +75,7 @@ defmodule REST do
     STORE.delete(:storage,:tmp)
     STORE.put(:storage,:tmp,websocket)
     if(mess<websocket and (last != mess or tmp != currentWS))do
-      IO.inspect "REST mówi: W REST temeperatura jest niższa niż w WEBSOCKET"
+      IO.inspect "REST mowi: W REST temperatura jest nizsza niz w WEBSOCKET"
       IO.inspect "WEBSOCKET "<> Float.to_string(websocket)<>" REST "<> Float.to_string(mess)
       IO.inspect "*******************************************************************************"
     end
