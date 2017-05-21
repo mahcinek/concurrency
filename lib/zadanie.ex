@@ -37,9 +37,6 @@ defmodule WEBHOOK do
   def socketaa (pidAdress) do
     socket=Socket.Web.connect!("localhost", 8000)
     spawn_recv_loop(socket, pidAdress)
-    #socket|>Socket.Web.send!({ :text, "test" })
-    #rec(socket)# => {:text, "test"}
-    #rec(socket,pidAdress)
 end
 end
 
@@ -93,19 +90,6 @@ defmodule REST do
 end
 
 defmodule ZADANIE do
-  @moduledoc """
-  Documentation for ZADANIE.
-  """
-
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> ZADANIE.hello
-      :world
-
-  """
   def start do
     pid=spawn(LISTENER,:listen,[])
     Process.register(pid, :addmsg)
@@ -134,18 +118,8 @@ defmodule LISTENER do
   def listen do
     receive do
       {:REST,text} ->
-        #IO.puts("Otrzymano od rest")
-        #old= STORE.get(:storage,:lastRest)
-        #if (text != old)do
-        #IO.inspect "REST ZMIANA NA"
-        #IO.inspect text
         text
-
       {:websocket, test}->
-        #olda= STORE.get(:storage,:lastWebsocket)
-        #if (test != olda)do
-        #IO.inspect "WEBSOCKET ZMIANA NA"
-        #IO.inspect test
         test
 
     end
