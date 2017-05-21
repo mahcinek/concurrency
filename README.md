@@ -47,7 +47,8 @@ ZADANIE.start
 Możliwości dostosowania działania:
 1. Serwer Websocket:
 
-1.1 linia 11 time.sleep(randint(a,b)) - jak często wysyłane są wiadomości z serwera (w sekundach, jest to przedział od a do b) - domyślnie co 2 lub 3 sekundy
+1.1 linia 11 time.sleep(randint(a,b)) - jak często wysyłane są wiadomości z serwera (w sekundach, jest to przedział od a do b) 
+- domyślnie co 2 lub 3 sekundy
 1.2 linia 12 value=str(randint(a,b)) - jakie wartości temperatury mają być wysyłane przez serwer (przedział) - domyślnie od 5 do 29
 
 2. Aplikacja /lib/zadanie.ex:
